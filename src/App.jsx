@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import './App.css';
@@ -11,15 +12,21 @@ import WeatherDetail from './assets/components/WeatherDetail';
 import NotFound from './assets/components/NotFound';
 
 function App() {
+	const [unit, setUnit] = useState('metric');
+
+	const toggleUnit = () => {
+		setUnit((prevUnit) => (prevUnit === 'metric' ? 'imperial' : 'metric'));
+	};
+
 	return (
 		<BrowserRouter>
-			<CustomNavbar />
+			<CustomNavbar unit={unit} toggleUnit={toggleUnit} />
 			
 			<main className='flex-grow-1 w-100 py-4'>
 				<Routes>
 					<Route path='/' element={<Home />} />
 					<Route path='/search' element={<Search />} />
-					<Route path='/weather/:city' element={<WeatherDetail />} />
+					<Route path='/weather/:city' element={<WeatherDetail unit={unit} />} />
 					<Route path='*' element={<NotFound />} />
 				</Routes>
 			</main>

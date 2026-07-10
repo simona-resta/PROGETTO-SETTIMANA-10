@@ -94,17 +94,14 @@ footer {
   color: #ffffff !important;
 }
 
-.glass-tile {
-  background: rgba(0, 0, 0, 0.25);
-  border: 2px solid rgba(0, 0, 0, 0.4);
-  border-radius: 16px;
-  padding: 1rem;
-  transition: transform 0.2s ease;
+.hover-card {
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
 }
 
-.glass-tile:hover {
-  transform: translateY(-2px);
-  background: rgba(0, 0, 0, 0.35);
+.hover-card:hover {
+  transform: translateY(-10px);
+  background: rgba(255, 255, 255, 0.1) !important;
 }
 
 .btn-modern {
