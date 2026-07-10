@@ -74,50 +74,61 @@ const WeatherDetail = () => {
 			<Card className='glass-card shadow-lg mx-auto border-0 w-100' style={{ maxWidth: '950px' }}>
 				<Card.Body className='p-4 p-md-5'>
 					
-					<Row className='align-items-center g-4'>
+					<Row className='g-4 align-items-stretch'>
 						
-						<Col xs={12} md={5} className='text-center text-md-start border-md-end border-white border-opacity-10 pe-md-4'>
-							<h2 className='fw-bold display-5 mb-1'>{weather.name}, {weather.sys.country}</h2>
-							<p className='text-white-50 fs-5 text-capitalize mb-3'>{weather.weather[0].description}</p>
-							
-							<div className='d-flex align-items-center justify-content-center justify-content-md-start gap-2'>
-								<h1 className='display-1 fw-bold mb-0' style={{ letterSpacing: '-0.04em' }}>
-									{Math.round(weather.main.temp)}°
-								</h1>
-								<img 
-									src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@4x.png`} 
-									alt="Weather icon"
-									style={{ width: '100px', height: '100px', filter: 'drop-shadow(0px 4px 8px rgba(0,0,0,0.15))' }} 
-								/>
-							</div>
+						<Col xs={12} md={5}>
+							<Card className='glass-card border-0 h-100 p-4 text-center text-md-start d-flex flex-column justify-content-center shadow-sm' style={{ background: 'rgba(255, 255, 255, 0.05)' }}>
+								<h2 className='fw-bold display-5 mb-1'>{weather.name}, {weather.sys.country}</h2>
+								<p className='text-white-50 fs-5 text-capitalize mb-3'>{weather.weather[0].description}</p>
+								
+								<div className='d-flex align-items-center justify-content-center justify-content-md-start gap-2'>
+									<h1 className='display-1 fw-bold mb-0' style={{ letterSpacing: '-0.04em' }}>
+										{Math.round(weather.main.temp)}°
+									</h1>
+									<img 
+										src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@4x.png`} 
+										alt="Weather icon"
+										style={{ width: '100px', height: '100px', filter: 'drop-shadow(0px 4px 8px rgba(0,0,0,0.15))' }} 
+									/>
+								</div>
+							</Card>
 						</Col>
 
-						<Col xs={12} md={7} className='ps-md-4'>
-							<Row className='g-3'>
-								<Col xs={6} lg={3}>
-									<div className='glass-tile text-center'>
+						<Col xs={12} md={7}>
+							<Row className='g-3 h-100'>
+								
+								<Col xs={6}>
+									<Card className='glass-card border-0 text-center p-3 h-100 d-flex flex-column justify-content-center align-items-center shadow-sm' style={{ background: 'rgba(255, 255, 255, 0.04)' }}>
+										<i className="bi bi-thermometer-half text-warning mb-2 fs-2"></i>
 										<p className='text-white-50 small mb-1'>Percepita</p>
 										<h4 className='fw-semibold mb-0'>{Math.round(weather.main.feels_like)}°C</h4>
-									</div>
+									</Card>
 								</Col>
-								<Col xs={6} lg={3}>
-									<div className='glass-tile text-center'>
+								
+								<Col xs={6}>
+									<Card className='glass-card border-0 text-center p-3 h-100 d-flex flex-column justify-content-center align-items-center shadow-sm' style={{ background: 'rgba(255, 255, 255, 0.04)' }}>
+										<i className="bi bi-droplet-fill text-info mb-2 fs-2"></i>
 										<p className='text-white-50 small mb-1'>Umidità</p>
 										<h4 className='fw-semibold mb-0'>{weather.main.humidity}%</h4>
-									</div>
+									</Card>
 								</Col>
-								<Col xs={6} lg={3}>
-									<div className='glass-tile text-center'>
+								
+								<Col xs={6}>
+									<Card className='glass-card border-0 text-center p-3 h-100 d-flex flex-column justify-content-center align-items-center shadow-sm' style={{ background: 'rgba(255, 255, 255, 0.04)' }}>
+										<i className="bi bi-arrow-down-up text-danger mb-2 fs-2"></i>
 										<p className='text-white-50 small mb-1'>Min / Max</p>
 										<h4 className='fw-semibold mb-0'>{Math.round(weather.main.temp_min)}° / {Math.round(weather.main.temp_max)}°</h4>
-									</div>
+									</Card>
 								</Col>
-								<Col xs={6} lg={3}>
-									<div className='glass-tile text-center'>
+								
+								<Col xs={6}>
+									<Card className='glass-card border-0 text-center p-3 h-100 d-flex flex-column justify-content-center align-items-center shadow-sm' style={{ background: 'rgba(255, 255, 255, 0.04)' }}>
+										<i className="bi bi-wind text-light mb-2 fs-2"></i>
 										<p className='text-white-50 small mb-1'>Vento</p>
 										<h4 className='fw-semibold mb-0'>{weather.wind.speed} <span className='fs-6 fw-light'>km/h</span></h4>
-									</div>
+									</Card>
 								</Col>
+
 							</Row>
 						</Col>
 					</Row>
